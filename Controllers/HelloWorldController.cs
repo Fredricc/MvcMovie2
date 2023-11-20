@@ -11,10 +11,15 @@ public class HelloWorldController : Controller
     {
         return "This is my default action...";
     }
-    // 
     // GET: /HelloWorld/Welcome/ 
-    public string Welcome()
+    // Requires using System.Text.Encodings.Web;
+    public string Welcome(string name, int numTimes = 1)
     {
-        return "This is the Welcome action method...";
+        return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+    }
+    // GET: /HelloWorld/Greating/ 
+    public string Greeting()
+    {
+        return "Welcome Fredrick...";
     }
 }
